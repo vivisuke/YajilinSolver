@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://ds6aa3e75plu3"]
+[gd_scene load_steps=20 format=3 uid="uid://ds6aa3e75plu3"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_2m4e4"]
 [ext_resource type="Script" path="res://scripts/TitleBar.gd" id="1_q85mi"]
@@ -6,6 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://ccy2tund4hx0r" path="res://images/pink49x49.png" id="2_noj35"]
 [ext_resource type="Texture2D" uid="uid://csr11mm2txh0q" path="res://images/arrows.png" id="4_sh64a"]
 [ext_resource type="Texture2D" uid="uid://2fgjqsjfpt1y" path="res://images/arrows2.png" id="5_y3osi"]
+[ext_resource type="Texture2D" uid="uid://bn5gasldqrgtr" path="res://images/left.png" id="6_g8vq0"]
+[ext_resource type="Texture2D" uid="uid://cleiihiy1r0t" path="res://images/down.png" id="7_h2f7e"]
+[ext_resource type="Texture2D" uid="uid://do42mb3vt5c4j" path="res://images/up.png" id="8_5nu00"]
+[ext_resource type="Texture2D" uid="uid://dvnnh1kvhimtn" path="res://images/right.png" id="9_jsea6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m1ohm"]
 texture = ExtResource("2_noj35")
@@ -27,6 +31,33 @@ tile_size = Vector2i(49, 49)
 sources/0 = SubResource("TileSetAtlasSource_m1ohm")
 sources/1 = SubResource("TileSetAtlasSource_01m3h")
 sources/2 = SubResource("TileSetAtlasSource_p2o4l")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cqn40"]
+texture = ExtResource("6_g8vq0")
+texture_region_size = Vector2i(49, 49)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cm44d"]
+texture = ExtResource("7_h2f7e")
+texture_region_size = Vector2i(49, 49)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q458t"]
+texture = ExtResource("8_5nu00")
+texture_region_size = Vector2i(49, 49)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4drpm"]
+texture = ExtResource("9_jsea6")
+texture_region_size = Vector2i(49, 49)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_ia1vu"]
+tile_size = Vector2i(49, 49)
+sources/0 = SubResource("TileSetAtlasSource_cqn40")
+sources/1 = SubResource("TileSetAtlasSource_cm44d")
+sources/2 = SubResource("TileSetAtlasSource_q458t")
+sources/3 = SubResource("TileSetAtlasSource_4drpm")
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_2m4e4")
@@ -59,6 +90,10 @@ offset_bottom = 590.0
 
 [node name="TileMap" type="TileMap" parent="Board"]
 tile_set = SubResource("TileSet_0g3hw")
+format = 2
+
+[node name="TileMap2" type="TileMap" parent="Board"]
+tile_set = SubResource("TileSet_ia1vu")
 format = 2
 
 [node name="Grid" type="ColorRect" parent="Board"]

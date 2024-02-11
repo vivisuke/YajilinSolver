@@ -5,6 +5,11 @@ enum {
 	TILE_CURSOR,			# カーソル（薄ピンク）
 	TILE_ARROWS,			# 
 	TILE_ARROWS2,			# 
+	#
+	TILE_LEFT = 0,
+	TILE_DOWN,
+	TILE_UP,
+	TILE_RIGHT,
 }
 
 const N_HORZ = 10
@@ -18,8 +23,8 @@ func _ready():
 	init_labels()
 	for y in range(N_VERT):
 		for x in range(N_HORZ):
-			var t = TILE_ARROWS if (x+y)%2 == 0 else TILE_ARROWS2
-			$Board/TileMap.set_cell(0, Vector2i(x, y), t, Vector2i(0, 0))
+			var t = TILE_LEFT + (x+y)%4
+			$Board/TileMap2.set_cell(0, Vector2i(x, y), t, Vector2i(0, 0))
 	pass # Replace with function body.
 func init_labels():
 	for y in range(N_VERT):
@@ -31,7 +36,7 @@ func init_labels():
 			label.add_theme_color_override("font_color", Color.BLACK)
 			label.add_theme_font_size_override("font_size", 40)
 			label.position = Vector2(px, py)
-			label.text = str((x+y)%10)
+			label.text = str((x+y)%6)
 			$Board.add_child(label)
 func _process(delta):
 	pass
