@@ -21,10 +21,12 @@ var num_labels = []
 
 func _ready():
 	init_labels()
-	for y in range(N_VERT):
-		for x in range(N_HORZ):
-			var t = TILE_LEFT + (x+y)%4
-			$Board/TileMap2.set_cell(0, Vector2i(x, y), t, Vector2i(0, 0))
+	#for y in range(N_VERT):
+	#	for x in range(N_HORZ):
+	#		var t = TILE_LEFT + (x+y)%4
+	#		$Board/TileMap2.set_cell(0, Vector2i(x, y), t, Vector2i(0, 0))
+	cur_pos = Vector2i(0, 0)
+	$Board/TileMap.set_cell(0, cur_pos, TILE_CURSOR, Vector2i(0, 0))
 	pass # Replace with function body.
 func init_labels():
 	for y in range(N_VERT):
@@ -36,7 +38,8 @@ func init_labels():
 			label.add_theme_color_override("font_color", Color.BLACK)
 			label.add_theme_font_size_override("font_size", 40)
 			label.position = Vector2(px, py)
-			label.text = str((x+y)%6)
+			label.text = ""
+			#label.text = str((x+y)%6)
 			$Board.add_child(label)
 func _process(delta):
 	pass
