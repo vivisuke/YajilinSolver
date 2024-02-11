@@ -51,8 +51,12 @@ func _input(event):
 		if mp[0] >= 0 && mp[0] < N_HORZ && mp[1] >= 0 && mp[1] < N_VERT:
 			if cur_pos[0] >= 0:
 				$Board/TileMap.set_cell(0, cur_pos, TILE_NONE)
-			cur_pos = mp
-			$Board/TileMap.set_cell(0, cur_pos, TILE_CURSOR, Vector2i(0, 0))
+			if mp != cur_pos:
+				cur_pos = mp
+				$Board/TileMap.set_cell(0, cur_pos, TILE_CURSOR, Vector2i(0, 0))
+			else:
+				cur_pos = Vector2i(-1, -1)
+				$Board/TileMap.set_cell(0, cur_pos, TILE_NONE)
 		
 func num_button_pressed(num):		# num == -1 for erase
 	if cur_pos[0] < 0: return
