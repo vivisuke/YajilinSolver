@@ -54,3 +54,34 @@ func _input(event):
 			cur_pos = mp
 			$Board/TileMap.set_cell(0, cur_pos, TILE_CURSOR, Vector2i(0, 0))
 		
+func num_button_pressed(num):		# num == -1 for erase
+	if cur_pos[0] < 0: return
+	var ix = cur_pos[1] * N_HORZ + cur_pos[0]
+	num_labels[ix].text = "%d" % num if num >= 0 else ""
+func _on_button_0_pressed():
+	num_button_pressed(0)
+func _on_button_1_pressed():
+	num_button_pressed(1)
+func _on_button_2_pressed():
+	num_button_pressed(2)
+func _on_button_3_pressed():
+	num_button_pressed(3)
+func _on_button_4_pressed():
+	num_button_pressed(4)
+func _on_button_5_pressed():
+	num_button_pressed(5)
+func _on_button_erase_pressed():
+	num_button_pressed(-1)
+
+func arrow_button_pressed(tile):
+	if cur_pos[0] < 0: return
+	#var ix = cur_pos[1] * N_HORZ + cur_pos[0]
+	$Board/TileMap2.set_cell(0, cur_pos, tile, Vector2i(0, 0))
+func _on_left_button_pressed():
+	arrow_button_pressed(TILE_LEFT)
+func _on_down_button_pressed():
+	arrow_button_pressed(TILE_DOWN)
+func _on_up_button_pressed():
+	arrow_button_pressed(TILE_UP)
+func _on_right_button_pressed():
+	arrow_button_pressed(TILE_RIGHT)

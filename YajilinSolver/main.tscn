@@ -146,7 +146,7 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "5"
 
-[node name="Button6" type="Button" parent="HBC1"]
+[node name="ButtonErase" type="Button" parent="HBC1"]
 custom_minimum_size = Vector2(55, 55)
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
@@ -159,25 +159,25 @@ offset_bottom = 793.0
 theme_override_constants/separation = 12
 alignment = 1
 
-[node name="Button0" type="Button" parent="HBC2"]
+[node name="LeftButton" type="Button" parent="HBC2"]
 custom_minimum_size = Vector2(55, 55)
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "←"
 
-[node name="Button1" type="Button" parent="HBC2"]
+[node name="DownButton" type="Button" parent="HBC2"]
 custom_minimum_size = Vector2(55, 55)
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "↓"
 
-[node name="Button2" type="Button" parent="HBC2"]
+[node name="UpButton" type="Button" parent="HBC2"]
 custom_minimum_size = Vector2(55, 55)
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "↑"
 
-[node name="Button3" type="Button" parent="HBC2"]
+[node name="RightButton" type="Button" parent="HBC2"]
 custom_minimum_size = Vector2(55, 55)
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
@@ -197,3 +197,15 @@ theme_override_font_sizes/font_size = 40
 custom_minimum_size = Vector2(55, 55)
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
+
+[connection signal="pressed" from="HBC1/Button0" to="." method="_on_button_0_pressed"]
+[connection signal="pressed" from="HBC1/Button1" to="." method="_on_button_1_pressed"]
+[connection signal="pressed" from="HBC1/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="HBC1/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="HBC1/Button4" to="." method="_on_button_4_pressed"]
+[connection signal="pressed" from="HBC1/Button5" to="." method="_on_button_5_pressed"]
+[connection signal="pressed" from="HBC1/ButtonErase" to="." method="_on_button_erase_pressed"]
+[connection signal="pressed" from="HBC2/LeftButton" to="." method="_on_left_button_pressed"]
+[connection signal="pressed" from="HBC2/DownButton" to="." method="_on_down_button_pressed"]
+[connection signal="pressed" from="HBC2/UpButton" to="." method="_on_up_button_pressed"]
+[connection signal="pressed" from="HBC2/RightButton" to="." method="_on_right_button_pressed"]
