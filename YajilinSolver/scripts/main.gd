@@ -61,7 +61,11 @@ func _input(event):
 func num_button_pressed(num):		# num == -1 for erase
 	if cur_pos[0] < 0: return
 	var ix = cur_pos[1] * N_HORZ + cur_pos[0]
-	num_labels[ix].text = "%d" % num if num >= 0 else ""
+	if num >= 0:
+		num_labels[ix].text = "%d" % num
+	else:
+		num_labels[ix].text = ""
+		$Board/TileMap2.set_cell(0, cur_pos, TILE_NONE)
 func _on_button_0_pressed():
 	num_button_pressed(0)
 func _on_button_1_pressed():
